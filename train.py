@@ -47,15 +47,15 @@ print("Loading data...")
 x_text, y = data_helpers.load_data_and_labels(data_file)
 print(x_text)
 print(y)
-# embeds = nn.Embedding(len(vocab_processor.vocabulary_), FLAGS.embedding_dim, "max_norm" = 0.25)
+# embeds = nn.Embedding(len(vocab_processor.vocabulary_), embedding_dim, "max_norm" = 0.25)
 
 # trecho para carregar Word2Vec pronto
 if word2vec != "None":
     # initial matrix with random uniform
-    initW = np.random.uniform(-0.25, 0.25, (len(vocab_processor.vocabulary_), FLAGS.embedding_dim))
+    # initW = np.random.uniform(-0.25, 0.25, (len(vocab_processor.vocabulary_), embedding_dim))
     # load any vectors from the word2vec
-    print("Load word2vec file {}\n".format(FLAGS.word2vec))
-    with open(FLAGS.word2vec, "rb") as f:
+    print("Load word2vec file {}\n".format(word2vec))
+    with open(word2vec, "rb") as f:
         header = f.readline()
         vocab_size, layer1_size = map(int, header.split())
         binary_len = np.dtype('float32').itemsize * layer1_size
